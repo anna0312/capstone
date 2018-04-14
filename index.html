@@ -52,12 +52,118 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
-
+adsfasdf
   <div class="container">
-    <div id="store-items">
+    <form id="get-distance">
+      <input type="text" name="distance[origin]" placeholder="Origin">
+      <input type="text" name="distance[destination]" placeholder="Destination">
+      <button type="Submit">Submit</button>
+    </form>
+  </div>
 
+  <!-- THE FOLLOWING CONTAINS ALL THE MODALS -->
+
+  <!-- MODAL: SIGN UP -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeSignUpModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form class="form-horizontal" id="signUpForm">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" name="credentials[email]" class="form-control" id="signUpEmail" placeholder="Email">
+              </div>
+              <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" name="credentials[password]" class="form-control" id="signUpPassword" placeholder="Password">
+              </div>
+              <label for="inputPassword3" class="col-sm-3 control-label">Confirm Password</label>
+              <div class="col-sm-9">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" id="signUpPasswordConf" placeholder="Password">
+              </div>
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign up</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
+  <!-- MODAL: SIGN IN -->
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeSignInModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form class="form-horizontal" id="signInForm">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" name="credentials[email]" class="form-control" id="signInEmail" placeholder="Email">
+              </div>
+              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" name="credentials[password]" class="form-control" id="signInPassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign In</button>
+                <button type="button" id="signUpDivert" class="btn btn-primary">Create an Account</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- MODAL: CHANGE PASSWORD -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeChangePassword" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form class="form-horizontal" id="changePasswordForm">
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 control-label">Old password</label>
+              <div class="col-sm-9">
+                <input type="password" name="passwords[old]" class="form-control" id="changePasswordOld" placeholder="old password">
+              </div>
+              <label for="inputPassword3" class="col-sm-3 control-label">New password</label>
+              <div class="col-sm-9">
+                <input type="password" name="passwords[new]" class="form-control" id="changePasswordNew" placeholder="new password">
+              </div>
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="change-pwd btn btn-default">Change Password</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 

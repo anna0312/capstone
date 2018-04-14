@@ -1,2 +1,46 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+body {
+  padding-top: 60px;
+}
+
+
+.small-input {
+  max-width: 60px;
+  margin-left: 20px;
+}
+
+.btn-primary {
+  float: right;
+}
+
+.change-pwd {
+  float: right;
+  margin: 5%;
+}
+
+
+.sign-up {
+  margin: 10px;
+}
+
+.sign-in {
+  margin: 10px;
+}
+
+.change-password {
+  display: none;
+  margin: 10px;
+}
+
+.order-history {
+  display: none;
+  margin: 10px;
+}
+
+.sign-out {
+  display: none;
+  margin: 10px;
+}

@@ -1,6 +1,7 @@
 'use strict'
 
 const authEvents = require('./auth/events')
+const gmapsEvents = require('./gmaps/events')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -9,6 +10,7 @@ const authEvents = require('./auth/events')
 // require('./example')
 $(() => {
   authEvents.addHandlers()
+  gmapsEvents.addHandlers()
   // gameEvents.addHandlers
   // statsEvents.addHandlers
 })
