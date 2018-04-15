@@ -3,7 +3,7 @@
 require('bootstrap-notify')
 
 const onGetDistanceSuccess = function (data) {
-  console.log(data)
+  console.log('success', data)
   $.notify({
     // options
     message: 'got it'
@@ -13,6 +13,20 @@ const onGetDistanceSuccess = function (data) {
     type: 'success'
   })
 }
+
+const onGetDistanceFailure = function (data) {
+  console.log('failure', data)
+  $.notify({
+    // options
+    message: 'failed'
+  },
+  {
+    // settings
+    type: 'success'
+  })
+}
+
 module.exports = {
-  onGetDistanceSuccess
+  onGetDistanceSuccess,
+  onGetDistanceFailure
 }
