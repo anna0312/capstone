@@ -2,7 +2,7 @@
 // const store = require('../store')
 require('bootstrap-notify')
 
-const onGetDistanceSuccess = function (data) {
+const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
   $.notify({
     // options
@@ -14,7 +14,7 @@ const onGetDistanceSuccess = function (data) {
   })
 }
 
-const onGetDistanceFailure = function (data) {
+const onGeneralFailure = function (data) {
   console.log('failure', data)
   $.notify({
     // options
@@ -22,11 +22,10 @@ const onGetDistanceFailure = function (data) {
   },
   {
     // settings
-    type: 'success'
+    type: 'danger'
   })
 }
-
 module.exports = {
-  onGetDistanceSuccess,
-  onGetDistanceFailure
+  onNewPlaceSaveSuccess,
+  onGeneralFailure
 }

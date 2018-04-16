@@ -74,7 +74,25 @@ function initMap() {
         ].join(' ')
       }
 
+      // find city and country name
+      let city = ''
+      let country = ''
+      for (var i = 0; i < place.address_components.length; i++) {
+        for (var b = 0; b < place.address_components[i].types.length; b++) {
 
+
+          if (place.address_components[i].types[b] == "locality") {
+            city = place.address_components[i];
+          }
+          if (place.address_components[i].types[b] == "country") {
+            //this is the object you are looking for
+            country = place.address_components[i];
+          }
+        }
+      }
+
+      place.city = city.long_name
+      place.country = country.long_name
 
       infowindowContent.children['place-icon'].src = place.icon
       infowindowContent.children['place-name'].textContent = place.name

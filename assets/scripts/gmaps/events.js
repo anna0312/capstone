@@ -14,8 +14,18 @@ const onDistanceSubmit = function (event) {
     .catch(ui.onGetDistanceFailure)
 }
 
+const onNewPlaceSave = function (event) {
+  event.preventDefault()
+  console.log('saved city attempt')
+  const data = getFormFields(this)
+  api.newPlaceSave(data)
+    .then(ui.onNewPlaceSaveSuccess)
+    .catch(ui.onGeneralFailure)
+}
+
 const addHandlers = () => {
   $('#get-distance').on('submit', onDistanceSubmit)
+  $('body').on('submit', '#save-new-place', onNewPlaceSave)
 }
 
 module.exports = {
