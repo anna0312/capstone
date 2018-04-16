@@ -12,7 +12,7 @@ city: {{place.city}}
 country: {{place.country}}
 <form id="save-new-place">
 
-  <input type="hidden" id="place_id" name="place[place_id]" value="{{place.place_id}}">
+  <input type="hidden" id="place_id" name="place[googlePlaceID]" value="{{place.place_id}}">
   <input type="hidden" id="place_name" name="place[name]" value="{{place.name}}">
   <input type="hidden" id="place_lat" name="place[lat]" value="{{place.geometry.location.lat}}">
   <input type="hidden" id="place_lng" name="place[lng]" value="{{place.geometry.location.lng}}">
