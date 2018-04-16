@@ -1,0 +1,20 @@
+{{#if place}}
+  <h3>{{place.name}}</h3>
+
+Lat: {{place.geometry.location.lat}}
+<br />
+Long: {{place.geometry.location.lng}}
+<br />
+ID: {{place.place_id}}
+<br />
+Address: {{place.formatted_address}}
+<form id="save-place">
+
+  <input type="hidden" id="place_id" name="place[place_id]" value="{{place.place_id}}">
+  <input type="hidden" id="place_name" name="place[name]" value="{{place.name}}">
+  <input type="hidden" id="place_lat" name="place[lat]" value="{{place.geometry.location.lat}}">
+  <input type="hidden" id="place_lng" name="place[lng]" value="{{place.geometry.location.lng}}">
+
+  <button type="submit" class="btn btn-info">Save to my destinations</button>
+</form>
+{{/if}}

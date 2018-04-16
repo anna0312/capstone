@@ -2,7 +2,7 @@
 
 const authEvents = require('./auth/events')
 const gmapsEvents = require('./gmaps/events')
-
+const gmapsAutocomplete = require('./gmaps/autocomplete')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -11,6 +11,8 @@ const gmapsEvents = require('./gmaps/events')
 $(() => {
   authEvents.addHandlers()
   gmapsEvents.addHandlers()
+  gmapsAutocomplete.initMap()
+//  gmapsAutocomplete.initMap()
   // gameEvents.addHandlers
   // statsEvents.addHandlers
 })
