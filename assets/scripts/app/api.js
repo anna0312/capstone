@@ -43,10 +43,21 @@ const getDestinations = function (data) {
 }
 
 const updatePlaceOrder = function (data) {
-  console.log('got to the api step')
   return $.ajax({
     url: config.apiUrl + '/places/',
-    method: 'GET',
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updatePlaceCategory = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/updateCategory/' + data.place.id,
+    method: 'PATCH',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
@@ -88,5 +99,7 @@ module.exports = {
   newPlaceSave,
   getPlacesOfInterest,
   getDestinations,
+  updatePlaceCategory,
+  updatePlaceOrder,
   getWeather
 }

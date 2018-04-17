@@ -11,9 +11,9 @@ const onGetPlaces = function (event) {
     .then(ui.onGetPlacesSuccess)
     .catch(ui.onGeneralFailure)
 
-  // api.getDestinations()
-  //   .then(ui.onGetDestinationsSuccess)
-  //   .catch(ui.onGeneralFailure)
+  api.getDestinations()
+    .then(ui.onGetDestinationsSuccess)
+    .catch(ui.onGeneralFailure)
 }
 
 const onNewPlaceSave = function (event) {
@@ -38,14 +38,24 @@ const onNewPlaceSave = function (event) {
 const onUpdatePlaceOrder = function (id, sortOrder) {
   const data = {
     'place': {
-      id: id,
       'sortOrder': sortOrder
     }
   }
-  //
-  // api.updatePlaceOrder(data)
-  //   .then(ui.onNewPlaceSaveSuccess)
-  //   .catch(ui.onGeneralFailure)
+  api.updatePlaceOrder(data)
+    .then(ui.onNewPlaceSaveSuccess)
+    .catch(ui.onGeneralFailure)
+}
+
+const onUpdatePlaceCategory = function (id, category) {
+  const data = {
+    'place': {
+      'id': id,
+      'category': category
+    }
+  }
+  api.updatePlaceCategory(data)
+    .then(ui.onUpdatePlaceCategorySuccess)
+    .catch(ui.onGeneralFailure)
 }
 
 const addHandlers = () => {
@@ -57,5 +67,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onUpdatePlaceOrder
+  onUpdatePlaceOrder,
+  onUpdatePlaceCategory
 }
