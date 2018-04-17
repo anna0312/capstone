@@ -16,7 +16,33 @@ const newPlaceSave = function (data) {
   })
 }
 
-const getPlaces = function (data) {
+const getPlacesOfInterest = function (data) {
+  console.log('got to the api step')
+  return $.ajax({
+    url: config.apiUrl + '/placesOfInterest/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const getDestinations = function (data) {
+  console.log('got to the api step')
+  return $.ajax({
+    url: config.apiUrl + '/destinations/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updatePlaceOrder = function (data) {
   console.log('got to the api step')
   return $.ajax({
     url: config.apiUrl + '/places/',
@@ -60,6 +86,7 @@ const getWeather = function (data) {
 
 module.exports = {
   newPlaceSave,
-  getPlaces,
+  getPlacesOfInterest,
+  getDestinations,
   getWeather
 }

@@ -1,7 +1,8 @@
-
+'use strict'
 // const store = require('../store')
 require('bootstrap-notify')
 const placecards = require('../templates/placecards.handlebars')
+const destinationcards = require('../templates/destinationcards.handlebars')
 
 const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
@@ -16,6 +17,12 @@ const onNewPlaceSaveSuccess = function (data) {
 const onGetPlacesSuccess = function (data) {
   console.log('success', data)
   $('#places-of-interest').html(placecards({ places: data.places }))
+  $('#kaban').css('display', 'block')
+}
+
+const onGetDestinationsSuccess = function (data) {
+  console.log('success', data)
+  $('#destinations').html(destinationcards({ places: data.places }))
   $('#kaban').css('display', 'block')
 }
 
@@ -43,6 +50,7 @@ const onGeneralFailure = function (data) {
 module.exports = {
   onNewPlaceSaveSuccess,
   onGetPlacesSuccess,
+  onGetDestinationsSuccess,
   onGetWeatherSuccess,
   onGeneralFailure
 }
