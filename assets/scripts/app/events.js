@@ -31,11 +31,15 @@ const onGetWeather = function (event) {
   //   .catch(ui.onGeneralFailure)
 }
 
+const onMoveCard = function (event) {
+  console.log('moved')
+}
+
 const addHandlers = () => {
   $('body').on('submit', '#save-new-place', onNewPlaceSave)
   $('#get-weather').on('submit', onGetWeather)
   $('#get-places').on('click', onGetPlaces)
-
+  $('.card').on('drop', onMoveCard)
 }
 
 module.exports = {

@@ -5,19 +5,16 @@ const loadDragula = function () {
   dragula([
     document.getElementById('places-of-interest'),
     document.getElementById('planned-destinations')
-  ])
+  ]).on('drop', function (el, target, sibling) {
+    console.log('el', el.id)
 
-  // Scrollable area
-  const element = document.getElementById('boards') // Count Boards
-  const numberOfBoards = element.getElementsByClassName('board').length
-  const boardsWidth = numberOfBoards * 316 // Width of all Boards
-  console.log(boardsWidth)
-  element.style.width = boardsWidth + 'px'// set Width
-
-  // disable text-selection
-  function disableselect(e) {return false}
-  document.onselectstart = new Function ()
-// document.onmousedown = disableselect
+    // get id of moved card
+    // get id of target
+    // if target = planned destinations
+    console.log('target', target)
+    console.log('sibling', sibling)
+  })
+  // document.onmousedown = disableselect
 }
 
 module.exports = {
