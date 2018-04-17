@@ -1,0 +1,11 @@
+
+{{#if places}}
+
+    {{#each places as |place|}}
+
+<div class="card" id="card-{{_id}}"><span class="cardtitle noselect"><h4>{{place.name}}</h4></span>
+  <h5>{{place.country}}</h5>
+
+</div>
+{{/each}}
+{{/if}}

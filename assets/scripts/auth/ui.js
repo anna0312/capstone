@@ -19,7 +19,6 @@ const onSignInSuccess = function (data) {
     this.reset()
   })
   store.user = data.user
-
   $('.change-password').css('display', 'block')
   $('.order-history').css('display', 'block')
   $('.sign-in').css('display', 'none')

@@ -1,6 +1,7 @@
 
 // const store = require('../store')
 require('bootstrap-notify')
+const placecards = require('../templates/placecards.handlebars')
 
 const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
@@ -14,6 +15,7 @@ const onNewPlaceSaveSuccess = function (data) {
 
 const onGetPlacesSuccess = function (data) {
   console.log('success', data)
+  $('#places-of-interest').html(placecards({ places: data.places }))
   $('#kaban').css('display', 'block')
 }
 
