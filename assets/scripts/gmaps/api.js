@@ -16,6 +16,30 @@ const newPlaceSave = function (data) {
   })
 }
 
+const getPlaces = function (data) {
+  console.log('got to the api step')
+  return $.ajax({
+    url: config.apiUrl + '/places/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const getWeather = function (data) {
+  const lat = data.weather.lat
+  const lng = data.weather.lng
+  const url = 'http://www4f.wolframalpha.com/input/json.jsp?async=false&dbid=MSP14704132dibge4gb8he4a00006208985if370hg2d&format=image,plaintext,imagemap,sound,minput,moutput&includepodid=ClimateCharts:WeatherData&input=climate+latitude+' + lat + '+longitude+' + lng + '&output=JSON&podTitle=Result+for+42%C2%B0+20%27+32%22N,+71%C2%B0+4%27+45%22W&podstate=MSP14704132dibge4gb8he4a00006208985if370hg2d&statemethod=deploybutton&storesubpodexprs=true&text=More'
+  return $.ajax({
+    url: url,
+    method: 'GET',
+    data
+  })
+}
+
 // const gmapApiKey = 'AIzaSyDgzo8T8525gSc5HkvI5AAKXfbd_KKaKCs'
 
 // const getDistance = function (data) {
@@ -35,5 +59,7 @@ const newPlaceSave = function (data) {
 // }
 
 module.exports = {
-  newPlaceSave
+  newPlaceSave,
+  getPlaces,
+  getWeather
 }

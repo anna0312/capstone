@@ -11,10 +11,9 @@ GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
 let markers = []
 let route = []
 
-function initMap() {
+function initMap () {
 
-  GoogleMapsLoader.load(function(google) {
-
+  GoogleMapsLoader.load(function (google) {
     const map = new google.maps.Map(document.getElementById('map'), {
       center: {
         lat: -33.8688,
@@ -81,11 +80,10 @@ function initMap() {
         for (var b = 0; b < place.address_components[i].types.length; b++) {
 
 
-          if (place.address_components[i].types[b] == "locality") {
+          if (place.address_components[i].types[b] === "locality") {
             city = place.address_components[i];
           }
-          if (place.address_components[i].types[b] == "country") {
-            //this is the object you are looking for
+          if (place.address_components[i].types[b] === "country") {
             country = place.address_components[i];
           }
         }

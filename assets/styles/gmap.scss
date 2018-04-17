@@ -1,7 +1,11 @@
 /* Always set the map height explicitly to define the size of the div
       * element that contains the map. */
+    #gmap {
+      display: none;
+    }
      #map {
-       height: 200px;
+       height: 400px;
+       wiedht: 400px;
      }
 
      #description {

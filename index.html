@@ -15,8 +15,59 @@
 </head>
 
 <body>
-<div id="map"></div>
 
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">replace with cool name</a>
+      </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+              <li><button class="btn btn-default pad-5 sign-out" id="signOut" type="submit">Sign Out</button></li>
+              <li><button class="btn btn-default pad-5 change-password" id="changePassword" type="submit">Change password</button></li>
+              <li><button class="btn btn-default pad-5 sign-up" id="signUp" type="submit">Sign Up</button></li>
+              <li><button class="btn btn-default pad-5 sign-in" id="signIn" type="submit">Sign In</button></li>
+            <li><a href="#" class="cart-icon"><i class="fas fa-2x fa-shopping-cart cart-icon"></i></a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+<button id="get-places">my places</button>
+  <div id="kaban">
+    <div id="scroller">
+      <div id="boards">
+
+        <div class="board" id="board1">
+          <header>Thinkin' about it ... </header>
+          <div class="cards" id="b1">
+            <div class="card"><span class="cardtitle noselect">A great card #1</span></div>
+            <div class="card"><span class="cardtitle noselect">A great card #2</span></div>
+            <div class="card"><span class="cardtitle noselect">A great card #3</span></div>
+            <div class="card"><span class="cardtitle noselect">A great card #4</span></div>
+          </div>
+        </div>
+
+        <div class="board" id="board2">
+          <header>Definitly!</header>
+          <div class="cards" id="b2">
+            <div class="card"><span class="cardtitle">A great card #5</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- begin google map stuff -->
+  <div id="gmap">
   <div class="pac-card" id="pac-card">
         <div>
           <div id="title">
@@ -52,36 +103,12 @@
         <span id="place-address"></span>
       </div>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#">replace with cool name</a>
-      </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-
-              <li><button class="btn btn-default pad-5 sign-out" id="signOut" type="submit">Sign Out</button></li>
-              <li><button class="btn btn-default pad-5 change-password" id="changePassword" type="submit">Change password</button></li>
-              <li><button class="btn btn-default pad-5 order-history" id="orderHistory" type="submit">Order History</button></li>
-              <li><button class="btn btn-default pad-5 sign-up" id="signUp" type="submit">Sign Up</button></li>
-              <li><button class="btn btn-default pad-5 sign-in" id="signIn" type="submit">Sign In</button></li>
-            <li><a href="#" class="cart-icon"><i class="fas fa-2x fa-shopping-cart cart-icon"></i></a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </nav>
-
+<!-- end google maps stuff -->
+</div>
   <div class="container">
-    <form id="get-distance">
-      <input type="text" name="distance[origin]" placeholder="Origin">
-      <input type="text" name="distance[destination]" placeholder="Destination">
+    <form id="get-weather">
+      <input type="text" name="weather[lat]" placeholder="lat">
+      <input type="text" name="weather[lng]" placeholder="long">
       <button type="Submit">Submit</button>
     </form>
   </div>

@@ -1,12 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import './gmap';
+@import './dragula';
 
 body {
   padding-top: 60px;
 }
 
 
+.card-content {
+  padding: 10px;
+}
 .small-input {
   max-width: 60px;
   margin-left: 20px;
@@ -35,10 +39,7 @@ body {
   margin: 10px;
 }
 
-.order-history {
-  display: none;
-  margin: 10px;
-}
+
 
 .sign-out {
   display: none;
@@ -61,4 +62,28 @@ body {
   color: #c00819;
   text-align: center;
   margin: auto;
+}
+
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.gu-hide {
+  display: none !important;
+}
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
 }

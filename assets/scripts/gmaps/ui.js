@@ -5,8 +5,23 @@ require('bootstrap-notify')
 const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
   $.notify({
+    message: 'Place has been saved!'
+  },
+  {
+    type: 'success'
+  })
+}
+
+const onGetPlacesSuccess = function (data) {
+  console.log('success', data)
+  $('#kaban').css('display', 'block')
+}
+
+const onGetWeatherSuccess = function (data) {
+  console.log('success', data)
+  $.notify({
     // options
-    message: 'got it'
+    message: 'Weather woot!!!'
   },
   {
     // settings
@@ -17,15 +32,15 @@ const onNewPlaceSaveSuccess = function (data) {
 const onGeneralFailure = function (data) {
   console.log('failure', data)
   $.notify({
-    // options
     message: 'failed'
   },
   {
-    // settings
     type: 'danger'
   })
 }
 module.exports = {
   onNewPlaceSaveSuccess,
+  onGetPlacesSuccess,
+  onGetWeatherSuccess,
   onGeneralFailure
 }
