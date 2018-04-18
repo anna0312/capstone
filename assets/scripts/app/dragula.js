@@ -17,17 +17,8 @@ const loadDragula = function () {
     }
     api.updatePlaceCategory(data)
       .then(ui.onUpdatePlaceCategorySuccess)
-      .then(api.getPlacesOfInterest)
       .catch(ui.onGeneralFailure)
 
-    // console.log('el', el.id)
-
-    // get id of moved card
-    // get id of target
-    // if target = planned destinations
-    // console.log('target', target)
-    // console.log('sibling', sibling)
-    // const allLocations = []
     const arrPlaces = []
     $('#going div.card').each(function (i, val) {
       arrPlaces.push($(this).attr('id'))
@@ -38,14 +29,14 @@ const loadDragula = function () {
         }
       }
       api.updatePlaceOrder(sortData)
-        .then(api.getDestinations)
+        .then(ui.onUpdatePlaceOrderSuccess)
         .catch(ui.onGeneralFailure)
+
 
     //  console.log('arrPlaces ', arrPlaces)
       // allLocations.push($(this).attr('id'))
       // console.log('i is', i)
     })
-
   })
   // document.onmousedown = disableselect
 }

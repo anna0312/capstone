@@ -16,7 +16,7 @@
 
 <body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default transparent navbar-fixed-top" >
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -40,6 +40,46 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
+
+
+
+  <div id="bg-fade-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+  <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+          <div class="item active">
+              <div class="slide1"></div>
+          </div>
+          <div class="item">
+              <div class="slide2"></div>
+          </div>
+          <div class="item">
+              <div class="slide3"></div>
+          </div>
+
+
+      </div><!-- .carousel-inner -->
+      <div class="container carousel-overlay text-center">
+          <h1>Get Kittens Free All Week Long</h1>
+          <p class="lead">Special orders also available upon request.  Check out our pricing.</p>
+          <a class="btn btn-lg btn-success fp-buttons" href="#">
+              <span class="fa fa-dollar"></span> Get Pricing
+          </a>
+          <a class="btn btn-lg btn-success fp-buttons" href="#">
+              <span class="fa fa-check"></span> Sign Up
+          </a>
+      </div>
+  </div><!-- .carousel -->
+  <!--end bg-carousel-->
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+             <p>Your other page content here...</p>
+          </div><!--/.col -->
+      </div><!--/.row -->
+  </div><!--/.container -->
+
+
+
 <button id="get-gmap">get map</button>
 <button id="get-places">my places</button>
   <div id="kaban">
@@ -53,9 +93,8 @@
         </div>
 
         <div class="board" id="board2">
-          <header>Definitly!</header>
+          <header>Planning on it!</header>
           <div class="cards" id="going">
-            <div class="card"><span class="cardtitle">A great card #5</span></div>
           </div>
         </div>
 
@@ -102,13 +141,6 @@
 
 <!-- end google maps stuff -->
 </div>
-  <div class="container">
-    <form id="get-weather">
-      <input type="text" name="weather[lat]" placeholder="lat">
-      <input type="text" name="weather[lng]" placeholder="long">
-      <button type="Submit">Submit</button>
-    </form>
-  </div>
 
   <!-- THE FOLLOWING CONTAINS ALL THE MODALS -->
 

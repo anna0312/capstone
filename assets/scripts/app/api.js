@@ -17,7 +17,7 @@ const newPlaceSave = function (data) {
 }
 
 const getPlacesOfInterest = function (data) {
-  console.log('got to the api step')
+  console.log('got to the api step places of interest')
   return $.ajax({
     url: config.apiUrl + '/placesOfInterest/',
     method: 'GET',
@@ -30,7 +30,7 @@ const getPlacesOfInterest = function (data) {
 }
 
 const getDestinations = function () {
-  console.log('got to the api step')
+  console.log('got to the api step destinations')
   return $.ajax({
     url: config.apiUrl + '/destinations/',
     method: 'GET',

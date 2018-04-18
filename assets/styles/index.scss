@@ -2,11 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import './gmap';
 @import './dragula';
-
-body {
-  padding-top: 60px;
-}
-
+@import './header';
 
 .card-content {
   padding: 10px;

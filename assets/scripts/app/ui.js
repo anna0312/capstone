@@ -1,7 +1,6 @@
 'use strict'
 const store = require('../store')
 require('bootstrap-notify')
-const events = require('./events')
 const api = require('./api')
 const helpers = require('../helpers')
 
@@ -31,7 +30,7 @@ const onDeletePlaceSuccess = function (data) {
 }
 
 const onGetPlacesSuccess = function (data) {
-  console.log('success', data)
+  console.log('nick is watching success', data)
   $('#interested').html(placecards({ places: data.places }))
   $('#kaban').css('display', 'block')
 }
@@ -44,44 +43,44 @@ const onGetDestinationsSuccess = function (data) {
   for (let i = 1; i < data.places.length; i++) {
     previousLat = data.places[i - 1].lat
     previousLng = data.places[i - 1].lng
+    store.destinations[i].previousPlace = data.places[i - 1].name
     //  console.log('data name', previousLat)
 
     //  console.log('store name', store.destinations[i].name)
-    store.destinations[i].distanceFromPrevious = helpers.geoDistance(
+    const distance = helpers.geoDistance(
       previousLat,
       previousLng,
       data.places[i].lat,
       data.places[i].lng,
       'n')
-     console.log('distance from ' + store.destinations[i-1].name + ' to ' + store.destinations[i].name + ': ' + store.destinations[i].distanceFromPrevious)
+    store.destinations[i].distanceFromPrevious = distance.toFixed(2)
+    console.log('distance from ' + store.destinations[i - 1].name + ' to ' + store.destinations[i].name + ': ' + store.destinations[i].distanceFromPrevious)
   }
-  // data.places.forEach(function (dest) {
-  //   console.log('east', dest)
-  // store.destinations.places.distanceFromPrevious //= helpers.geoDistance(store)
-  // })
 
   $('#going').html(destinationcards({ places: store.destinations }))
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
   console.log('update category success', data)
+  // events.onGetPlaces()
 }
 
 const onUpdatePlaceOrderSuccess = function (data) {
   console.log('update order success', data)
+  // events.onGetPlaces()
 }
-
-const onGetWeatherSuccess = function (data) {
-  console.log('success', data)
-  $.notify({
-    // options
-    message: 'Weather woot!!!'
-  },
-  {
-    // settings
-    type: 'success'
-  })
-}
+//
+// const onGetWeatherSuccess = function (data) {
+//   console.log('success', data)
+//   $.notify({
+//     // options
+//     message: 'Weather woot!!!'
+//   },
+//   {
+//     // settings
+//     type: 'success'
+//   })
+// }
 
 const onGeneralFailure = function (data) {
   console.log('failure', data)
@@ -99,6 +98,5 @@ module.exports = {
   onUpdatePlaceCategorySuccess,
   onUpdatePlaceOrderSuccess,
   onDeletePlaceSuccess,
-  onGetWeatherSuccess,
   onGeneralFailure
 }

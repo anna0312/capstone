@@ -7,8 +7,13 @@ const gmaps = require('./gmaps')
 // const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onGetPlaces = function (event) {
+const onGetPlacesClick = function (event) {
   event.preventDefault()
+  onGetPlaces()
+}
+
+const onGetPlaces = function () {
+  console.log('hi nick!')
   api.getPlacesOfInterest()
     .then(ui.onGetPlacesSuccess)
     .catch(ui.onGeneralFailure)
@@ -43,7 +48,7 @@ const onDeletePlace = function () {
   // }
   api.deletePlace(deleteId)
     .then(ui.onDeletePlaceSuccess)
-    .then(ui.getPlacesOfInterest)
+    .then(onGetPlaces)
     .catch(ui.onGeneralFailure)
 }
 
@@ -51,7 +56,7 @@ const addHandlers = () => {
   $('body').on('submit', '#save-new-place', onNewPlaceSave)
   $('body').on('click', '.delete-place', onDeletePlace)
   // $('#get-weather').on('submit', onGetWeather)
-  $('#get-places').on('click', onGetPlaces)
+  $('#get-places').on('click', onGetPlacesClick)
   $('#get-gmap').on('click', onGetGmap)
   // $('.card').on('drop', onMoveCard)
 }
