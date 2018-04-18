@@ -2,6 +2,8 @@
 
 const ui = require('./ui.js')
 const api = require('./api.js')
+const gmaps = require('./gmaps')
+
 // const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
@@ -10,7 +12,6 @@ const onGetPlaces = function (event) {
   api.getPlacesOfInterest()
     .then(ui.onGetPlacesSuccess)
     .catch(ui.onGeneralFailure)
-
   api.getDestinations()
     .then(ui.onGetDestinationsSuccess)
     .catch(ui.onGeneralFailure)
@@ -24,49 +25,37 @@ const onNewPlaceSave = function (event) {
     .catch(ui.onGeneralFailure)
 }
 
-// const onGetWeather = function (event) {
-//   event.preventDefault()
-//   console.log('getting weather')
-//   const data = getFormFields(this)
-//   const weatherString = 'January | -1 °F | 29 °F | 61 °F February | -6 °F | 31 °F | 60 °F March | 10 °F | 38 °F | 73 °F April | 20 °F | 48 °F | 78 °F May | 40 °F | 58 °F | 83 °F June | 47 °F | 67 °F | 88 °F July | 57 °F | 73 °F | 91 °F August | 55 °F | 72 °F | 91 °F September | 46 °F | 64 °F | 84 °F October | 35 °F | 54 °F | 76 °F November | 21 °F | 45 °F | 68 °F December | -1 °F | 34 °F | 64 °F'
-//   const weatherArr = weatherString.split('|')
-//   // api.getWeather(data)
-//   //   .then(ui.onGetWeather)
-//   //   .catch(ui.onGeneralFailure)
-// }
-
-const onUpdatePlaceOrder = function (id, sortOrder) {
-  const data = {
-    'place': {
-      'sortOrder': sortOrder
-    }
-  }
-  api.updatePlaceOrder(data)
-    .then(ui.onNewPlaceSaveSuccess)
-    .catch(ui.onGeneralFailure)
+const onGetGmap = function () {
+  event.preventDefault()
+  console.log('map!')
+  gmaps.initMap()
 }
 
-const onUpdatePlaceCategory = function (id, category) {
-  const data = {
-    'place': {
-      'id': id,
-      'category': category
-    }
-  }
-  api.updatePlaceCategory(data)
-    .then(ui.onUpdatePlaceCategorySuccess)
+const onDeletePlace = function () {
+  event.preventDefault()
+  const deleteId = $(event.target).data('deleteid')
+  // below is delete confirmation stuff. Come back to this later
+  // const confirm = confirm("Want to delete?")
+  // if (confirm) {
+  //     console.log('deleting', deleteId)
+  // } else {
+  //   console.log('not deleted')
+  // }
+  api.deletePlace(deleteId)
+    .then(ui.onDeletePlaceSuccess)
+    .then(ui.getPlacesOfInterest)
     .catch(ui.onGeneralFailure)
 }
 
 const addHandlers = () => {
   $('body').on('submit', '#save-new-place', onNewPlaceSave)
+  $('body').on('click', '.delete-place', onDeletePlace)
   // $('#get-weather').on('submit', onGetWeather)
   $('#get-places').on('click', onGetPlaces)
+  $('#get-gmap').on('click', onGetGmap)
   // $('.card').on('drop', onMoveCard)
 }
 
 module.exports = {
-  addHandlers,
-  onUpdatePlaceOrder,
-  onUpdatePlaceCategory
+  addHandlers
 }

@@ -29,7 +29,7 @@ const getPlacesOfInterest = function (data) {
   })
 }
 
-const getDestinations = function (data) {
+const getDestinations = function () {
   console.log('got to the api step')
   return $.ajax({
     url: config.apiUrl + '/destinations/',
@@ -37,14 +37,13 @@ const getDestinations = function (data) {
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
 const updatePlaceOrder = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/places/',
+    url: config.apiUrl + '/updatePlaceOrder/' + data.place.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -66,6 +65,18 @@ const updatePlaceCategory = function (data) {
   })
 }
 
+const deletePlace = function (id) {
+  // console.log('id is', id)
+  return $.ajax({
+    url: config.apiUrl + '/places/' + id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const getWeather = function (data) {
   const lat = data.weather.lat
   const lng = data.weather.lng
@@ -77,29 +88,12 @@ const getWeather = function (data) {
   })
 }
 
-// const gmapApiKey = 'AIzaSyDgzo8T8525gSc5HkvI5AAKXfbd_KKaKCs'
-
-// const getDistance = function (data) {
-//   const origin = data.distance.origin
-//   const destination = data.distance.destination
-//   let gmapDistanceUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=' + origin + '&destinations=' + destination + '&key=' + gmapApiKey
-//   gmapDistanceUrl = gmapDistanceUrl.replace(/\s/g, '+')
-//   console.log('url', gmapDistanceUrl)
-//   return $.ajax({
-//     url: gmapDistanceUrl,
-//     method: 'GET',
-//     headers: {
-//     //  'Access-Control-Allow-Origin': 'http://localhost:7165',
-//       contentType: 'application/json'
-//     }
-//   })
-// }
-
 module.exports = {
   newPlaceSave,
   getPlacesOfInterest,
   getDestinations,
   updatePlaceCategory,
   updatePlaceOrder,
+  deletePlace,
   getWeather
 }

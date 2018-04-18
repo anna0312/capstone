@@ -2,11 +2,11 @@
 {{#if places}}
 
     {{#each places as |place|}}
-
 <div class="card" id="{{_id}}"><span class="cardtitle noselect"><h4>{{place.name}}</h4></span>
-
-  <h5>{{place.country}}</h5>
-
+  <h6>{{place.country}}</h5>
+{{#if place.distanceFromPrevious}}
+  Distance from previous destination: {{place.distanceFromPrevious}}
+{{/if}}
 </div>
 {{/each}}
 {{/if}}

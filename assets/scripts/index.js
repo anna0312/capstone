@@ -1,10 +1,8 @@
 'use strict'
 
 const authEvents = require('./auth/events')
-const gmapsEvents = require('./app/events')
-const gmapsAutocomplete = require('./app/autocomplete')
+const appEvents = require('./app/events')
 const dragula = require('./app/dragula')
-
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -13,8 +11,7 @@ const dragula = require('./app/dragula')
 // require('./example')
 $(() => {
   authEvents.addHandlers()
-  gmapsEvents.addHandlers()
-  gmapsAutocomplete.initMap()
+  appEvents.addHandlers()
   dragula.loadDragula()
 
   // gameEvents.addHandlers

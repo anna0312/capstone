@@ -1,12 +1,16 @@
 'use strict'
-// const store = require('../store')
+const store = require('../store')
 require('bootstrap-notify')
+const events = require('./events')
+const api = require('./api')
+const helpers = require('../helpers')
 
 const destinationcards = require('../templates/destinationcards.handlebars')
 const placecards = require('../templates/placecards.handlebars')
 
 const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
+  api.getPlacesOfInterest()
   $.notify({
     message: 'Place has been saved!'
   },
@@ -15,19 +19,56 @@ const onNewPlaceSaveSuccess = function (data) {
   })
 }
 
+const onDeletePlaceSuccess = function (data) {
+  console.log('success', data)
+  api.getPlacesOfInterest()
+  $.notify({
+    message: 'Place has been deleted!'
+  },
+  {
+    type: 'success'
+  })
+}
+
 const onGetPlacesSuccess = function (data) {
   console.log('success', data)
-  $('#places-of-interest').html(placecards({ places: data.places }))
+  $('#interested').html(placecards({ places: data.places }))
   $('#kaban').css('display', 'block')
 }
 
 const onGetDestinationsSuccess = function (data) {
-  console.log('destination success', data)
-  $('#destinations').html(destinationcards({ places: data.places }))
+  console.log('destination is success', data.places)
+  store.destinations = data.places
+  let previousLat = 0
+  let previousLng = 0
+  for (let i = 1; i < data.places.length; i++) {
+    previousLat = data.places[i - 1].lat
+    previousLng = data.places[i - 1].lng
+    //  console.log('data name', previousLat)
+
+    //  console.log('store name', store.destinations[i].name)
+    store.destinations[i].distanceFromPrevious = helpers.geoDistance(
+      previousLat,
+      previousLng,
+      data.places[i].lat,
+      data.places[i].lng,
+      'n')
+     console.log('distance from ' + store.destinations[i-1].name + ' to ' + store.destinations[i].name + ': ' + store.destinations[i].distanceFromPrevious)
+  }
+  // data.places.forEach(function (dest) {
+  //   console.log('east', dest)
+  // store.destinations.places.distanceFromPrevious //= helpers.geoDistance(store)
+  // })
+
+  $('#going').html(destinationcards({ places: store.destinations }))
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
-  console.log('update success', data)
+  console.log('update category success', data)
+}
+
+const onUpdatePlaceOrderSuccess = function (data) {
+  console.log('update order success', data)
 }
 
 const onGetWeatherSuccess = function (data) {
@@ -56,6 +97,8 @@ module.exports = {
   onGetPlacesSuccess,
   onGetDestinationsSuccess,
   onUpdatePlaceCategorySuccess,
+  onUpdatePlaceOrderSuccess,
+  onDeletePlaceSuccess,
   onGetWeatherSuccess,
   onGeneralFailure
 }

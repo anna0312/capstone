@@ -3,7 +3,7 @@
 const placeInfo = require('../templates/placeInfo.handlebars')
 
 const GoogleMapsLoader = require('google-maps')
-const ui = require('./ui')
+//const ui = require('./ui')
 
 GoogleMapsLoader.KEY = 'AIzaSyDgzo8T8525gSc5HkvI5AAKXfbd_KKaKCs'
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
@@ -12,7 +12,7 @@ let markers = []
 let route = []
 
 function initMap () {
-
+  $('#gmap').css('display', 'block')
   GoogleMapsLoader.load(function (google) {
     const map = new google.maps.Map(document.getElementById('map'), {
       center: {
@@ -43,14 +43,14 @@ function initMap () {
       anchorPoint: new google.maps.Point(0, -29)
     })
 
-    autocomplete.addListener('place_changed', function() {
+    autocomplete.addListener('place_changed', function () {
       infowindow.close()
       marker.setVisible(false)
       const place = autocomplete.getPlace()
       if (!place.geometry) {
         // User entered the name of a Place that was not suggested and
         // pressed the Enter key, or the Place Details request failed.
-        window.alert("No details available for input: '" + place.name + "'")
+        window.alert('No details available for input: ' + place.name)
         return
       }
 
@@ -76,15 +76,13 @@ function initMap () {
       // find city and country name
       let city = ''
       let country = ''
-      for (var i = 0; i < place.address_components.length; i++) {
-        for (var b = 0; b < place.address_components[i].types.length; b++) {
-
-
-          if (place.address_components[i].types[b] === "locality") {
-            city = place.address_components[i];
+      for (let i = 0; i < place.address_components.length; i++) {
+        for (let b = 0; b < place.address_components[i].types.length; b++) {
+          if (place.address_components[i].types[b] === 'locality') {
+            city = place.address_components[i]
           }
-          if (place.address_components[i].types[b] === "country") {
-            country = place.address_components[i];
+          if (place.address_components[i].types[b] === 'country') {
+            country = place.address_components[i]
           }
         }
       }
@@ -100,7 +98,6 @@ function initMap () {
         place: place
       }))
 
-
       console.log(place)
       //  infowindowContent.children['place-id'].textContent = place.name
       infowindow.open(map, marker)
@@ -108,9 +105,9 @@ function initMap () {
 
     // Sets a listener on a radio button to change the filter type on Places
     // Autocomplete.
-    function setupClickListener(id, types) {
+    function setupClickListener (id, types) {
       const radioButton = document.getElementById(id)
-      radioButton.addEventListener('click', function() {
+      radioButton.addEventListener('click', function () {
         autocomplete.setTypes(types)
       })
     }
@@ -121,7 +118,7 @@ function initMap () {
     setupClickListener('changetype-geocode', ['geocode'])
 
     document.getElementById('use-strict-bounds')
-      .addEventListener('click', function() {
+      .addEventListener('click', function () {
         console.log('Checkbox clicked! New state=' + this.checked)
         autocomplete.setOptions({
           strictBounds: this.checked
