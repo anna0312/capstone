@@ -61,12 +61,12 @@ const onGetDestinationsSuccess = function (data) {
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
-  console.log('update category success', data)
+  console.log('update category success')
   // events.onGetPlaces()
 }
 
 const onUpdatePlaceOrderSuccess = function (data) {
-  console.log('update order success', data)
+  console.log('update order success')
   // events.onGetPlaces()
 }
 //

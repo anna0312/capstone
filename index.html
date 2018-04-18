@@ -34,7 +34,9 @@
               <li><button class="btn btn-default pad-5 change-password" id="changePassword" type="submit">Change password</button></li>
               <li><button class="btn btn-default pad-5 sign-up" id="signUp" type="submit">Sign Up</button></li>
               <li><button class="btn btn-default pad-5 sign-in" id="signIn" type="submit">Sign In</button></li>
-            <li><a href="#" class="cart-icon"><i class="fas fa-2x fa-shopping-cart cart-icon"></i></a></li>
+              <li><button class="btn btn-default pad-5 sign-out" id="get-places" type="submit">My Places</button></li>
+
+
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -59,21 +61,34 @@
 
       </div><!-- .carousel-inner -->
       <div class="container carousel-overlay text-center">
-          <h1>Get Kittens Free All Week Long</h1>
-          <p class="lead">Special orders also available upon request.  Check out our pricing.</p>
-          <a class="btn btn-lg btn-success fp-buttons" href="#">
-              <span class="fa fa-dollar"></span> Get Pricing
-          </a>
-          <a class="btn btn-lg btn-success fp-buttons" href="#">
-              <span class="fa fa-check"></span> Sign Up
-          </a>
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h4 style="color: #fff;">Where will you go next?</h4>
+        <div id="signInFormDiv" class="auth-box content-panel" style="display: none;">
+                  <h3 id="loginTitle" class="titleText">Log In</h3>
+                  <form id="sign-in" class="border">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="loginEmail" name="credentials[email]" placeholder="Email" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="loginPwd" name="credentials[password]" placeholder="Password" autocomplete="new-password">
+                    </div>
+                    <input type="submit" value="Log in" class="btn btn-info">
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+
       </div>
   </div><!-- .carousel -->
   <!--end bg-carousel-->
   <div class="container">
       <div class="row">
           <div class="col-xs-12">
-             <p>Your other page content here...</p>
+             <p></p>
           </div><!--/.col -->
       </div><!--/.row -->
   </div><!--/.container -->
@@ -81,7 +96,7 @@
 
 
 <button id="get-gmap">get map</button>
-<button id="get-places">my places</button>
+<a href="#" name="boards"></a>
   <div id="kaban">
     <div id="scroller">
       <div id="boards">

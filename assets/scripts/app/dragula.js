@@ -30,6 +30,7 @@ const loadDragula = function () {
       }
       api.updatePlaceOrder(sortData)
         .then(ui.onUpdatePlaceOrderSuccess)
+        .then(events.onGetPlaces)
         .catch(ui.onGeneralFailure)
 
 
