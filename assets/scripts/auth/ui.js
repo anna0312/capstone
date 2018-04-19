@@ -37,6 +37,7 @@ const onSignInSuccess = function (data) {
   $('.sign-in').css('display', 'none')
   $('.sign-up').css('display', 'none')
   $('.sign-out').css('display', 'block')
+  $('.visible-loggedin').css('display', 'block')
 }
 
 const onSignInFailure = function () {

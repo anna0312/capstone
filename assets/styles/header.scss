@@ -12,44 +12,18 @@
 .navbar-default .navbar-brand {
     color: #fff;
 }
+.navbar-fixed-top {
+      position: fixed;
+}
+.navbar-fixed-top.scrolled {
+  background-color: #72A09B;
+//  background-image: url('../images/willian-justen-de-vasconcellos-499722-unsplash.jpg');
+  transition: background-color 200ms linear;
+}
 
-.slide1, .slide2, .slide3 {
-    min-height: 560px;
-    background-size: cover;
-    background-position: center center;
-}
-.slide1 {
-    background-image: url('../images/dorian-mongel-340528-unsplash.jpg');
-}
-.slide2 {
-    background-image: url('../images/willian-justen-de-vasconcellos-499722-unsplash.jpg');
-}
-.slide3 {
-    background-image: url('../images/jaromir-kavan-296728-unsplash.jpg');
-}
-/* Carousel Fade Effect */
-.carousel.carousel-fade .item {
-    -webkit-transition: opacity 1s linear;
-    -moz-transition: opacity 1s linear;
-    -ms-transition: opacity 1s linear;
-    -o-transition: opacity 1s linear;
-    transition: opacity 1s linear;
-    //opacity: .5;
-     transition-delay: 1s;
-}
-.carousel.carousel-fade .active.item {
-    opacity: 1;
-}
-.carousel.carousel-fade .active.left,
-.carousel.carousel-fade .active.right {
-    left: 0;
-    z-index: 2;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-.carousel-overlay {
-    position: absolute;
-    bottom: 100px;
-    right: 0;
-    left: 0;
+
+.btn-nav {
+  background-color: transparent;
+  border: solid 1px #fff;
+  color: #fff;
 }
