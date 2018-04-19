@@ -4,7 +4,7 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const gmaps = require('./gmaps')
 const helpers = require('../helpers')
-
+const c3 = require('c3')
 // const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
@@ -40,7 +40,15 @@ const onGetGmap = function () {
 
 const onShowPlace = function (event) {
   event.preventDefault()
+  const showId = $(event.target).data('showid')
   // console.log(showId)
+  // below is delete confirmation stuff. Come back to this later
+  // const confirm = confirm("Want to delete?")
+  // if (confirm) {
+  //     console.log('deleting', deleteId)
+  // } else {
+  //   console.log('not deleted')
+  // }
   api.showPlace(showId)
     .then(ui.onShowPlaceSuccess)
     .catch(ui.onGeneralFailure)

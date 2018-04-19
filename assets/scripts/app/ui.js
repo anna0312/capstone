@@ -3,6 +3,8 @@ const store = require('../store')
 require('bootstrap-notify')
 const api = require('./api')
 const helpers = require('../helpers')
+const c3 = require('c3')
+
 
 const destinationcards = require('../templates/destinationcards.handlebars')
 const placecards = require('../templates/placecards.handlebars')
@@ -63,6 +65,28 @@ const onGetDestinationsSuccess = function (data) {
 const onShowPlaceSuccess = function (data) {
   console.log('place: ', data)
   $('#board3').html(placedetail({ place: data.place }))
+
+  const chart = c3.generate({
+    data: {
+      x: 'x',
+      //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+      columns: [
+        ['x', 'Jan', 'Feb', 'Mar', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+        ['High', 30, 40, 50, 60, 70, 80, 90, 80, 70, 60, 50, 40],
+        ['Low', 10, 15, 20, 30, 40, 60, 65, 55, 50, 40, 20, 5]
+      ]
+    },
+    axis: {
+      x: {
+        type: 'category'
+      }
+    },
+    color: {
+      pattern: ['#f90939', '#27c1f9']
+    }
+  })
+//  helpers.getDistance24Info()
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
@@ -87,6 +111,13 @@ const onUpdatePlaceOrderSuccess = function (data) {
 //   })
 // }
 
+
+const onGetDistance24InfoSuccess = function (data) {
+  console.log('24 info', data)
+  // events.onGetPlaces()
+}
+
+
 const onGeneralFailure = function (data) {
   console.log('failure', data)
   $.notify({
@@ -104,5 +135,6 @@ module.exports = {
   onUpdatePlaceOrderSuccess,
   onShowPlaceSuccess,
   onDeletePlaceSuccess,
+  onGetDistance24InfoSuccess,
   onGeneralFailure
 }

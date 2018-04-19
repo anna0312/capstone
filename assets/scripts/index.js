@@ -4,6 +4,8 @@ const authEvents = require('./auth/events')
 const appEvents = require('./app/events')
 const dragula = require('./app/dragula')
 const gmaps = require('./app/gmaps')
+
+
 // const modernizer = require('./app/modernizer')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')

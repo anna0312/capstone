@@ -90,16 +90,19 @@ const showPlace = function (id) {
   })
 }
 
-const getWeather = function (data) {
-  const lat = data.weather.lat
-  const lng = data.weather.lng
-  const url = 'http://www4f.wolframalpha.com/input/json.jsp?async=false&dbid=MSP14704132dibge4gb8he4a00006208985if370hg2d&format=image,plaintext,imagemap,sound,minput,moutput&includepodid=ClimateCharts:WeatherData&input=climate+latitude+' + lat + '+longitude+' + lng + '&output=JSON&podTitle=Result+for+42%C2%B0+20%27+32%22N,+71%C2%B0+4%27+45%22W&podstate=MSP14704132dibge4gb8he4a00006208985if370hg2d&statemethod=deploybutton&storesubpodexprs=true&text=More'
+const getDistance24InfoAjax = function (city) {
+  const url = 'https://www.distance24.org/api.xhtml'
   return $.ajax({
     url: url,
     method: 'GET',
-    data
+    headers: {
+      contentType: 'application/json'
+    }
   })
 }
+
+
+
 
 
 
@@ -111,5 +114,5 @@ module.exports = {
   updatePlaceOrder,
   showPlace,
   deletePlace,
-  getWeather
+  getDistance24InfoAjax
 }

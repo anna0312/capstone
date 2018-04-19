@@ -1,4 +1,7 @@
 'use strict'
+const api = require('./app/api')
+const ui = require('./app/ui')
+
 
 const geoDistance = function (lat1, lon1, lat2, lon2, unit) {
   const radlat1 = Math.PI * lat1 / 180
@@ -11,8 +14,12 @@ const geoDistance = function (lat1, lon1, lat2, lon2, unit) {
   dist = Math.acos(dist)
   dist = dist * 180 / Math.PI
   dist = dist * 60 * 1.1515
-  if (unit === 'K') { dist = dist * 1.609344 }
-  if (unit === 'N') { dist = dist * 0.8684 }
+  if (unit === 'K') {
+    dist = dist * 1.609344
+  }
+  if (unit === 'N') {
+    dist = dist * 0.8684
+  }
   return dist
 }
 
@@ -23,10 +30,13 @@ const scrollTo = function (anchor) {
 }
 
 const getDistance24Info = function (city) {
-
+  api.getDistance24InfoAjax(city)
+    .then(ui.onGetDistance24Info)
+    .catch(ui.onGeneralFailure)
 }
 
 module.exports = {
   geoDistance,
-  scrollTo
+  scrollTo,
+  getDistance24Info
 }
