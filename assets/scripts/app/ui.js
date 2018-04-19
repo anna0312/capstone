@@ -6,6 +6,7 @@ const helpers = require('../helpers')
 
 const destinationcards = require('../templates/destinationcards.handlebars')
 const placecards = require('../templates/placecards.handlebars')
+const placedetail = require('../templates/placedetail.handlebars')
 
 const onNewPlaceSaveSuccess = function (data) {
   console.log('success', data)
@@ -59,6 +60,11 @@ const onGetDestinationsSuccess = function (data) {
   $('#going').html(destinationcards({ places: store.destinations }))
 }
 
+const onShowPlaceSuccess = function (data) {
+  console.log('place: ', data)
+  $('#board3').html(placedetail({ place: data.place }))
+}
+
 const onUpdatePlaceCategorySuccess = function (data) {
   console.log('update category success')
   // events.onGetPlaces()
@@ -96,6 +102,7 @@ module.exports = {
   onGetDestinationsSuccess,
   onUpdatePlaceCategorySuccess,
   onUpdatePlaceOrderSuccess,
+  onShowPlaceSuccess,
   onDeletePlaceSuccess,
   onGeneralFailure
 }

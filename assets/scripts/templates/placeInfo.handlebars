@@ -1,15 +1,14 @@
 {{#if place}}
   <h3>{{place.name}}</h3>
-
+<!--
 Lat: {{place.geometry.location.lat}}
 <br />
 Long: {{place.geometry.location.lng}}
 <br />
 ID: {{place.place_id}}
 <br />
-city: {{place.city}}
-<br />
-country: {{place.country}}
+city: -->
+{{place.city}}, {{place.country}}
 <form id="save-new-place">
 
   <input type="hidden" id="place_id" name="place[googlePlaceID]" value="{{place.place_id}}">
@@ -22,6 +21,6 @@ country: {{place.country}}
   <input type="hidden" id="place_googleInfo" name="place[googleInfo]" value="{{place}}">
 
 
-  <button type="submit" class="btn btn-info">Save to my destinations</button>
+  <button type="submit" class="btn btn-info">Add to my places</button>
 </form>
 {{/if}}

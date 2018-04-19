@@ -3,6 +3,7 @@
 const ui = require('./ui.js')
 const api = require('./api.js')
 const gmaps = require('./gmaps')
+const helpers = require('../helpers')
 
 // const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
@@ -10,6 +11,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onGetPlacesClick = function (event) {
   event.preventDefault()
   onGetPlaces()
+  helpers.scrollTo('boards')
 }
 
 const onGetPlaces = function () {
@@ -26,16 +28,25 @@ const onNewPlaceSave = function (event) {
   const data = getFormFields(this)
   api.newPlaceSave(data)
     .then(ui.onNewPlaceSaveSuccess)
+    .then(onGetPlaces)
     .catch(ui.onGeneralFailure)
 }
 
 const onGetGmap = function () {
   event.preventDefault()
   console.log('map!')
-
 }
 
-const onDeletePlace = function () {
+
+const onShowPlace = function (event) {
+  event.preventDefault()
+  // console.log(showId)
+  api.showPlace(showId)
+    .then(ui.onShowPlaceSuccess)
+    .catch(ui.onGeneralFailure)
+}
+
+const onDeletePlace = function (event) {
   event.preventDefault()
   const deleteId = $(event.target).data('deleteid')
   // below is delete confirmation stuff. Come back to this later
@@ -54,6 +65,7 @@ const onDeletePlace = function () {
 const addHandlers = () => {
   $('body').on('submit', '#save-new-place', onNewPlaceSave)
   $('body').on('click', '.delete-place', onDeletePlace)
+  $('body').on('click', '.show-place', onShowPlace)
   // $('#get-weather').on('submit', onGetWeather)
   $('#get-places').on('click', onGetPlacesClick)
   $('#get-gmap').on('click', onGetGmap)

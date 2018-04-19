@@ -12,6 +12,14 @@ body {
   padding-top: 700px;
 }
 
+h2, h3, h4, h5 {
+  margin-top: 10px;
+}
+
+place-detail h3{
+  font-family: 'Voltaire', sans-serif;
+}
+
 .navbar-brand {
   font-family: 'Voltaire', sans-serif;
   font-size: 30px;
@@ -20,9 +28,15 @@ body {
   display: none;
 }
 
-.distance-from-above {
+.distance-from {
   font-size: 12px;
   text-align: center;
+  color: #fff;
+}
+
+.show-place {
+  color: #76ccc9;
+  cursor: pointer;
 }
 
 .card-content {

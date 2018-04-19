@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const appEvents = require('../app/events')
 require('bootstrap-notify')
 
 const onSignInSuccess = function (data) {
@@ -38,6 +39,8 @@ const onSignInSuccess = function (data) {
   $('.sign-up').css('display', 'none')
   $('.sign-out').css('display', 'block')
   $('.visible-loggedin').css('display', 'block')
+
+  appEvents.onGetPlaces()
 }
 
 const onSignInFailure = function () {

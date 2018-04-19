@@ -77,6 +77,19 @@ const deletePlace = function (id) {
   })
 }
 
+const showPlace = function (id) {
+  // console.log('id is', id)
+  console.log('api id is', id)
+  return $.ajax({
+    url: config.apiUrl + '/places/' + id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const getWeather = function (data) {
   const lat = data.weather.lat
   const lng = data.weather.lng
@@ -88,12 +101,15 @@ const getWeather = function (data) {
   })
 }
 
+
+
 module.exports = {
   newPlaceSave,
   getPlacesOfInterest,
   getDestinations,
   updatePlaceCategory,
   updatePlaceOrder,
+  showPlace,
   deletePlace,
   getWeather
 }

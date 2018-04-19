@@ -6,8 +6,9 @@
       position: relative;
     }
      #map {
-       height: 400px;
-       wiedht: 400px;
+       height: 500px;
+       width: 100%;
+       overflow: auto;
      }
 
      #description {

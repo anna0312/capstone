@@ -5,12 +5,18 @@
 
 
 <div class="card" id="{{_id}}">
-  <span class="cardtitle noselect"><h4>{{place.name}}</h4></span>
-  <h5>{{place.country}}</h5>
+<span class="cardtitle noselect"><h3>{{place.name}}
+            <i class="fas fa-info-circle show-place" data-showid="{{place._id}}" style="cursor: pointer; text-align: right;"></i>
+  </h3></span>
+<h5>
+  {{#if place.city}}
+    {{place.city}},
+  {{/if}}
+    {{place.country}}
+</h5>
   <i class="fas fa-trash-alt delete-place"  data-deleteid="{{place._id}}" style="cursor: pointer; text-align: right;"></i>
 
 </div>
-<i class="fas fa-info-circle"></i>
 
 {{/each}}
 {{/if}}

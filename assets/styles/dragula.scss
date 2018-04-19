@@ -78,6 +78,7 @@
   float: left;
   width: 100%;
   padding: 4px 8px;
+  color: #666;
 }
 
 .card {
@@ -98,6 +99,8 @@
 .cardtitle {
   float: left;
   width: 100%;
+  // font-family: 'Voltaire', sans-serif;
+  font-size: 35px;
 }
 
 .cards .is-moving {

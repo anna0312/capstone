@@ -16,7 +16,17 @@ const geoDistance = function (lat1, lon1, lat2, lon2, unit) {
   return dist
 }
 
+const scrollTo = function (anchor) {
+  $(document.body).animate({
+    'scrollTop': $('#' + anchor).offset().top
+  }, 2000)
+}
+
+const getDistance24Info = function (city) {
+
+}
 
 module.exports = {
-  geoDistance
+  geoDistance,
+  scrollTo
 }
