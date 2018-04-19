@@ -31,30 +31,48 @@
   width: 400px;
   height: auto;
   margin: 8px;
-  background-color: lightgray;
-  border-radius: 3px;
+  background-color: #108987;
+  border-radius: 0px;
   box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+}
+
+#board1 {
+  background-color: #467384;
+}
+
+#board3 {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: none;
+  border: 1px solid #e3e3e3;
 }
 
 .board header {
   float: left;
   width: 100%;
-  padding: 0.5em;
-  background-color: lightgray;
-  text-transform: uppercase;
-  border-radius: 3px 3px 0 0;
+  padding: 12px;
+  border-radius: 0;
+
+  //background-color: #222;
+  color: #fff;
+  font-family: 'Voltaire', sans-serif;
+  font-size: 30px;
 }
 
 #board1 header {
-  background-color: #888888;
+//  background-color: #888888;
   color: white;
 }
 
 #board2 header {
-  background-color: #222222;
+//  background-color: #222222;
   color: white;
 }
 
+#board3 header {
+  background-color: #fff;
+  color: #108987;
+}
 .cards {
   list-style-type: none;
   float: left;

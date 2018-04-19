@@ -52,7 +52,7 @@ const onGetDestinationsSuccess = function (data) {
       data.places[i].lat,
       data.places[i].lng,
       'n')
-    store.destinations[i].distanceFromPrevious = distance.toFixed(2)
+    store.destinations[i].distanceFromPrevious = distance.toFixed(0)
     console.log('distance from ' + store.destinations[i - 1].name + ' to ' + store.destinations[i].name + ': ' + store.destinations[i].distanceFromPrevious)
   }
 
