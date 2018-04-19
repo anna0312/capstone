@@ -33,7 +33,6 @@ const loadDragula = function () {
         .then(events.onGetPlaces)
         .catch(ui.onGeneralFailure)
 
-
     //  console.log('arrPlaces ', arrPlaces)
       // allLocations.push($(this).attr('id'))
       // console.log('i is', i)

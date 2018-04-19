@@ -13,7 +13,6 @@ const onGetPlacesClick = function (event) {
 }
 
 const onGetPlaces = function () {
-  console.log('hi nick!')
   api.getPlacesOfInterest()
     .then(ui.onGetPlacesSuccess)
     .catch(ui.onGeneralFailure)

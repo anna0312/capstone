@@ -3,7 +3,6 @@
 const placeInfo = require('../templates/placeInfo.handlebars')
 
 const GoogleMapsLoader = require('google-maps')
-//const ui = require('./ui')
 
 GoogleMapsLoader.KEY = 'AIzaSyDgzo8T8525gSc5HkvI5AAKXfbd_KKaKCs'
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
@@ -11,7 +10,8 @@ GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
 let markers = []
 let route = []
 
-function initMap () {
+const initMap = function () {
+  console.log('init map')
   $('#gmap').css('display', 'block')
   GoogleMapsLoader.load(function (google) {
     const map = new google.maps.Map(document.getElementById('map'), {
@@ -93,11 +93,16 @@ function initMap () {
       infowindowContent.children['place-icon'].src = place.icon
       infowindowContent.children['place-name'].textContent = place.name
       infowindowContent.children['place-address'].textContent = address
+      console.log('Pre handlebars')
 
-      $('#place-address').html(placeInfo({
-        place: place
-      }))
 
+setTimeout(function(){
+  $('#place-address').html(placeInfo({
+    place: place
+  }))
+}, 2000);
+
+      console.log($('#place-address').html(), 'Handle bar template')
       console.log(place)
       //  infowindowContent.children['place-id'].textContent = place.name
       infowindow.open(map, marker)
