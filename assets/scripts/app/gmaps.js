@@ -16,8 +16,8 @@ const initMap = function () {
   GoogleMapsLoader.load(function (google) {
     const map = new google.maps.Map(document.getElementById('map'), {
       center: {
-        lat: -33.8688,
-        lng: 151.2195
+        lat: 42.3601,
+        lng: -71.0589
       },
       zoom: 13
     })
@@ -90,22 +90,25 @@ const initMap = function () {
       place.city = city.long_name
       place.country = country.long_name
 
-      infowindowContent.children['place-icon'].src = place.icon
-      infowindowContent.children['place-name'].textContent = place.name
-      infowindowContent.children['place-address'].textContent = address
-      console.log('Pre handlebars')
+      // infowindowContent.children['place-icon'].src = place.icon
+      // infowindowContent.children['place-name'].textContent = place.name
+      // infowindowContent.children['place-address'].textContent = address & "blah blah blah "
+      // console.log('Pre handlebars')
 
+      const fillInfoBox = function () {
+        setTimeout(function () {
+          $('#place-address').html(placeInfo({
+            place: place
+          }))
+        }, 1000)
+      }
 
-setTimeout(function(){
-  $('#place-address').html(placeInfo({
-    place: place
-  }))
-}, 2000);
-
-      console.log($('#place-address').html(), 'Handle bar template')
+      fillInfoBox()
+      // console.log($('#place-address').html(), 'Handle bar template')
       console.log(place)
       //  infowindowContent.children['place-id'].textContent = place.name
       infowindow.open(map, marker)
+
     })
 
     // Sets a listener on a radio button to change the filter type on Places

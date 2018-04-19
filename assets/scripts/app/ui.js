@@ -30,7 +30,6 @@ const onDeletePlaceSuccess = function (data) {
 }
 
 const onGetPlacesSuccess = function (data) {
-  console.log('nick is watching success', data)
   $('#interested').html(placecards({ places: data.places }))
   $('#kaban').css('display', 'block')
 }

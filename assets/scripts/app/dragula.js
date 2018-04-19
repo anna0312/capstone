@@ -17,6 +17,7 @@ const loadDragula = function () {
     }
     api.updatePlaceCategory(data)
       .then(ui.onUpdatePlaceCategorySuccess)
+      .then(events.onGetPlaces)
       .catch(ui.onGeneralFailure)
 
     const arrPlaces = []

@@ -32,7 +32,7 @@ const onNewPlaceSave = function (event) {
 const onGetGmap = function () {
   event.preventDefault()
   console.log('map!')
-  gmaps.initMap()
+
 }
 
 const onDeletePlace = function () {

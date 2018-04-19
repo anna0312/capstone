@@ -10,7 +10,20 @@ const onSignInSuccess = function (data) {
   },
   {
     // settings
-    type: 'success'
+    type: 'success',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 20,
+    spacing: 10,
+    z_index: 1031,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
   })
 
   $('#signInModal').modal('hide')
