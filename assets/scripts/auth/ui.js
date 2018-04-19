@@ -64,6 +64,13 @@ const onSignOutSuccess = function () {
   $('.sign-in').css('display', 'block')
   $('.sign-up').css('display', 'block')
   $('.sign-out').css('display', 'none')
+  $('.visible-loggedin').css('display', 'none')
+
+  // clear all handlebars areas
+  $('#interested').html('')
+  $('#going').html('')
+  $('#place-details').html('')
+
 }
 
 const onSignUpSuccess = function () {
