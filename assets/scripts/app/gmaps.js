@@ -106,6 +106,8 @@ const initMap = function () {
       fillInfoBox()
       // console.log($('#place-address').html(), 'Handle bar template')
       console.log(place)
+      console.log(JSON.stringify(place)
+)
       //  infowindowContent.children['place-id'].textContent = place.name
       infowindow.open(map, marker)
 

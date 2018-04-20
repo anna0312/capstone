@@ -11,14 +11,14 @@ const onSignInSuccess = function (data) {
   },
   {
     // settings
-    type: 'info',
+    type: 'minimalist',
     placement: {
       from: 'top',
       align: 'center'
     },
     offset: 30,
     spacing: 10,
-    z_index: 1031,
+    z_index: 9999,
     delay: 1000,
     timer: 2000,
     animate: {
@@ -50,20 +50,25 @@ const onSignInFailure = function () {
   },
   {
     // settings
-    type: 'danger',
+    type: 'minimalist',
     placement: {
       from: 'top',
       align: 'center'
     },
     offset: 30,
     spacing: 10,
-    z_index: 1031,
+    z_index: 9999,
     delay: 1000,
     timer: 2000,
     animate: {
       enter: 'animated fadeInDown',
       exit: 'animated fadeOutUp'
     }
+  })
+  $('#signInModal').modal('hide')
+
+  $('#signInForm').each(function () {
+    this.reset()
   })
 }
 
@@ -74,14 +79,14 @@ const onSignOutSuccess = function () {
   },
   {
     // settings
-    type: 'info',
+    type: 'minimalist',
     placement: {
       from: 'top',
       align: 'center'
     },
     offset: 30,
     spacing: 10,
-    z_index: 1031,
+    z_index: 9999,
     delay: 1000,
     timer: 2000,
     animate: {
@@ -109,14 +114,14 @@ const onSignUpSuccess = function () {
   },
   {
     // settings
-    type: 'info',
+    type: 'minimalist',
     placement: {
       from: 'top',
       align: 'center'
     },
     offset: 30,
     spacing: 10,
-    z_index: 1031,
+    z_index: 9999,
     delay: 1000,
     timer: 2000,
     animate: {
@@ -124,28 +129,94 @@ const onSignUpSuccess = function () {
       exit: 'animated fadeOutUp'
     }
   })
+  $('#signUpModal').modal('hide')
+  $('#signUpForm').each(function () {
+    this.reset()
+  })
 }
 
 const onSignUpFailure = function () {
   $.notify({
     // options
-    message: 'There was a problem'
+    message: 'There was a problem. Have you already registered?'
   },
   {
     // settings
-    type: 'danger'
+    type: 'minimalist',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 9999,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
+  })
+
+  $('#signUpModal').modal('hide')
+  $('#signUpForm').each(function () {
+    this.reset()
   })
 }
 
-const onChangePasswordSuccess = function () {
-  $('#changePasswordModal').modal('hide')
+const signUpFailPwdMatch = function () {
   $.notify({
     // options
-    message: 'Success!'
+    message: 'Your password and password confirmation don\'t match'
   },
   {
     // settings
-    type: 'success'
+    type: 'minimalist',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 9999,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
+  })
+  $('#signUpForm').each(function () {
+    this.reset()
+  })
+}
+
+
+const onChangePasswordSuccess = function () {
+  $.notify({
+    // options
+    message: 'Your password and password confirmation don\'t match'
+  },
+  {
+    // settings
+    type: 'minimalist',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 9999,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
+  })
+  $('#changePasswordModal').modal('hide')
+  $('#changePasswordForm').each(function () {
+    this.reset()
   })
 }
 
@@ -156,7 +227,11 @@ const onChangePasswordFailure = function () {
   },
   {
     // settings
-    type: 'danger'
+    type: 'minimalist'
+  })
+  $('#changePasswordModal').modal('hide')
+  $('#changePasswordForm').each(function () {
+    this.reset()
   })
 }
 
@@ -167,5 +242,6 @@ module.exports = {
   onSignUpFailure,
   onSignOutSuccess,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  signUpFailPwdMatch
 }

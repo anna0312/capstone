@@ -64,18 +64,21 @@ const onDeletePlace = function (event) {
 
 const onClickMapLink = function () {
   event.preventDefault()
-  console.log('maplink')
-  $(document.body).animate({
-    'scrollTop': $('#gmap').offset().top
-  }, 2000)
+  window.scroll({
+    top: 850,
+    left: 0,
+    behavior: 'smooth'
+  })
+
 }
 
 const onClickPlacesLink = function () {
-  // event.preventDefault()
-  // console.log('placelink')
-  // // $(document.body).animate({
-  // //   'scrollTop': $('#kaban').offset().top
-  // // }, 2000)
+  event.preventDefault()
+  window.scroll({
+    top: 1350,
+    left: 0,
+    behavior: 'smooth'
+  })
 }
 
 
