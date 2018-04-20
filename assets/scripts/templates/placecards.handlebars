@@ -3,20 +3,25 @@
 
     {{#each places as |place|}}
 
+<div class="card" id="{{_id}}" >
+<span class="cardtitle noselect" style="background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/500x200/?{{place.name}}');">{{place.name}}
 
-<div class="card" id="{{_id}}">
-<span class="cardtitle noselect"><h3>{{place.name}}
-            <i class="fas fa-info-circle show-place" data-showid="{{place._id}}" style="cursor: pointer; float: right;"></i>
-  </h3></span>
-<h5>
+</span>
+<div class="cardinterior">
+  <br />  <br />  <br />
+<h4>
   {{#if place.city}}
     {{place.city}},
   {{/if}}
     {{place.country}}
-</h5>
-  <i class="fas fa-trash-alt delete-place"  data-deleteid="{{place._id}}" style="cursor: pointer; float: right;"></i>
+</h4>
+<i class="fas fa-trash-alt delete-place"  data-deleteid="{{place._id}}" style="cursor: pointer;"></i>
 
+<i class="fas fa-info-circle show-place" data-showid="{{place._id}}" style="cursor: pointer; float: right; margin: 15px;"></i>
+</div>
 </div>
 
 {{/each}}
+{{else}}
+<h4>Go to the map and choose a destination!</h4>
 {{/if}}

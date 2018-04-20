@@ -1,6 +1,5 @@
 'use strict'
 const store = require('../store')
-require('bootstrap-notify')
 const api = require('./api')
 const helpers = require('../helpers')
 const c3 = require('c3')
@@ -72,8 +71,8 @@ const onShowPlaceSuccess = function (data) {
       columns: [
         ['x', 'Jan', 'Feb', 'Mar', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-        ['High', 30, 40, 50, 60, 70, 80, 90, 80, 70, 60, 50, 40],
-        ['Low', 10, 15, 20, 30, 40, 60, 65, 55, 50, 40, 20, 5]
+        ['High', 30, 45, 50, 60, 73, 80, 88, 82, 68, 60, 50, 40],
+        ['Low', 20, 15, 20, 30, 40, 60, 65, 55, 50, 40, 27, 20]
       ]
     },
     axis: {
@@ -85,7 +84,7 @@ const onShowPlaceSuccess = function (data) {
       pattern: ['#f90939', '#27c1f9']
     }
   })
-  helpers.getDistance24Info(data.place.name)
+  // helpers.getDistance24Info(data.place.name)
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
