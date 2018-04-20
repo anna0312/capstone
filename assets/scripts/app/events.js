@@ -41,14 +41,6 @@ const onGetGmap = function () {
 const onShowPlace = function (event) {
   event.preventDefault()
   const showId = $(event.target).data('showid')
-  // console.log(showId)
-  // below is delete confirmation stuff. Come back to this later
-  // const confirm = confirm("Want to delete?")
-  // if (confirm) {
-  //     console.log('deleting', deleteId)
-  // } else {
-  //   console.log('not deleted')
-  // }
   api.showPlace(showId)
     .then(ui.onShowPlaceSuccess)
     .catch(ui.onGeneralFailure)
@@ -70,13 +62,34 @@ const onDeletePlace = function (event) {
     .catch(ui.onGeneralFailure)
 }
 
+const onClickMapLink = function () {
+  event.preventDefault()
+  console.log('maplink')
+  $(document.body).animate({
+    'scrollTop': $('#gmap').offset().top
+  }, 2000)
+}
+
+const onClickPlacesLink = function () {
+  // event.preventDefault()
+  // console.log('placelink')
+  // // $(document.body).animate({
+  // //   'scrollTop': $('#kaban').offset().top
+  // // }, 2000)
+}
+
+
+
+//  $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500);
+
 const addHandlers = () => {
   $('body').on('submit', '#save-new-place', onNewPlaceSave)
   $('body').on('click', '.delete-place', onDeletePlace)
   $('body').on('click', '.show-place', onShowPlace)
   // $('#get-weather').on('submit', onGetWeather)
-  $('#get-places').on('click', onGetPlacesClick)
-  $('#get-gmap').on('click', onGetGmap)
+  $('#get-places').on('click', onClickPlacesLink)
+  $('#get-gmap').on('click', onClickMapLink)
+
   // $('.card').on('drop', onMoveCard)
 }
 

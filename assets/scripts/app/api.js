@@ -91,7 +91,7 @@ const showPlace = function (id) {
 }
 
 const getDistance24InfoAjax = function (city) {
-  const url = 'https://www.distance24.org/api.xhtml'
+  const url = 'https://www.distance24.org/route.json?stops=' + city
   return $.ajax({
     url: url,
     method: 'GET',
@@ -100,6 +100,7 @@ const getDistance24InfoAjax = function (city) {
     }
   })
 }
+
 
 
 

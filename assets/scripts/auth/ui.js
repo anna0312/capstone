@@ -11,12 +11,12 @@ const onSignInSuccess = function (data) {
   },
   {
     // settings
-    type: 'success',
+    type: 'info',
     placement: {
       from: 'top',
       align: 'center'
     },
-    offset: 20,
+    offset: 30,
     spacing: 10,
     z_index: 1031,
     delay: 1000,
@@ -46,22 +46,48 @@ const onSignInSuccess = function (data) {
 const onSignInFailure = function () {
   $.notify({
     // options
-    message: 'Sorry, no dice'
+    message: 'Please try again'
   },
   {
     // settings
-    type: 'danger'
+    type: 'danger',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 1031,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
   })
 }
 
 const onSignOutSuccess = function () {
   $.notify({
     // options
-    message: 'Successfully signed out'
+    message: 'So long!'
   },
   {
     // settings
-    type: 'info'
+    type: 'info',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 1031,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
   })
   $('.change-password').css('display', 'none')
   $('.sign-in').css('display', 'block')
@@ -79,16 +105,24 @@ const onSignOutSuccess = function () {
 const onSignUpSuccess = function () {
   $.notify({
     // options
-    message: 'Welcome'
+    message: 'Oh the places you\'ll go!'
   },
   {
     // settings
-    type: 'success'
-  })
-  $('#signUpModal').modal('hide')
-
-  $('#signUpForm').each(function () {
-    this.reset()
+    type: 'info',
+    placement: {
+      from: 'top',
+      align: 'center'
+    },
+    offset: 30,
+    spacing: 10,
+    z_index: 1031,
+    delay: 1000,
+    timer: 2000,
+    animate: {
+      enter: 'animated fadeInDown',
+      exit: 'animated fadeOutUp'
+    }
   })
 }
 

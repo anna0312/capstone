@@ -5,7 +5,6 @@ const api = require('./api')
 const helpers = require('../helpers')
 const c3 = require('c3')
 
-
 const destinationcards = require('../templates/destinationcards.handlebars')
 const placecards = require('../templates/placecards.handlebars')
 const placedetail = require('../templates/placedetail.handlebars')
@@ -86,7 +85,7 @@ const onShowPlaceSuccess = function (data) {
       pattern: ['#f90939', '#27c1f9']
     }
   })
-//  helpers.getDistance24Info()
+  helpers.getDistance24Info(data.place.name)
 }
 
 const onUpdatePlaceCategorySuccess = function (data) {
