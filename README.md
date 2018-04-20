@@ -5,6 +5,13 @@
 Go There is a site that helps you plan a trip around the world. There are many travel sites out there, but what makes
 this one different is that it enables you to plan multi-leg journies and gives you the data to decide what order to go where.
 
+## Links
+Deployed site: (https://anna0312.github.io/capstone/)
+Deployed back end: (https://boiling-coast-87751.herokuapp.com/)
+Front end repo: (https://github.com/anna0312/capstone)
+Back end repo: (https://github.com/anna0312/capstone-api)
+
+
 ### Future Iterations
 Go There is just getting started. Consider this the prototype. Future iterations will include much more data on each
 location, shareable itineraries, a "got here" button that notifies family/friends of safe arrival, document sharing,
@@ -12,13 +19,13 @@ and much more. Stay tuned!
 
 ## Technologies Used
 
-# Front end:
+# Front end
 Javascript, CSS, Sass, Handlebars
 
-# Back end:
+# Back end
 Node, MongoDB, Mongoose
 
-## Dependencies:
+## Dependencies
 
 Google Maps Web Services: ```npm install google-maps```
 
