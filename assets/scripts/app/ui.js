@@ -15,7 +15,7 @@ const onNewPlaceSaveSuccess = function (data) {
     message: 'Place has been saved!'
   },
   {
-    type: 'success'
+    type: 'minimalist'
   })
 }
 
@@ -26,7 +26,7 @@ const onDeletePlaceSuccess = function (data) {
     message: 'Place has been deleted!'
   },
   {
-    type: 'success'
+    type: 'minimalist'
   })
 }
 
@@ -105,7 +105,7 @@ const onUpdatePlaceOrderSuccess = function (data) {
 //   },
 //   {
 //     // settings
-//     type: 'success'
+//     type: 'minimalist'
 //   })
 // }
 
@@ -122,7 +122,7 @@ const onGeneralFailure = function (data) {
     message: 'failed'
   },
   {
-    type: 'danger'
+    type: 'minimalist'
   })
 }
 module.exports = {

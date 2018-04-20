@@ -1,8 +1,13 @@
 # Go There
 
-Go There was inspired by my passion for travel and my plan to take a year of and travel the circumference of the world with my partner in crime. There are many travel sites out there, but I didn't find one that enabled you to plan a multi-legged journed and access the data to make decisions about where to go, when to go there, and what order to go there in.
+Go There was inspired by my passion for travel and a plan to take a year of and travel the circumference of the world with my partner in crime. There are many travel sites out there, but I didn't find one that enabled you to plan a multi-legged journey and access the data to make decisions about where to go, when to go there, and what order to go there in.
 
 Go There aims to give you the tools you need to get to all the places you want to go. Now all you have to do is... go there.
+
+### Future Iterations
+Go There is just getting started. Consider this the prototype. Future iterations will include much more data on each
+location, shareable itineraries, a "got here" button that notifies family/friends of safe arrival, document sharing,
+and much more. Stay tuned!
 
 
 ## Links
@@ -15,17 +20,12 @@ Front end repo: (https://github.com/anna0312/capstone)
 Back end repo: (https://github.com/anna0312/capstone-api)
 
 
-### Future Iterations
-Go There is just getting started. Consider this the prototype. Future iterations will include much more data on each
-location, shareable itineraries, a "got here" button that notifies family/friends of safe arrival, document sharing,
-and much more. Stay tuned!
+# Technologies Used
 
-## Technologies Used
-
-# Front end
+### Front end
 Javascript, CSS, Sass, Handlebars
 
-# Back end
+### Back end
 Node, MongoDB, Mongoose
 
 ## Dependencies

@@ -4,13 +4,12 @@
     {{#if place.distanceFromPrevious}}
       <div class="distance-from">
 
-        {{place.distanceFromPrevious}} <i class="fas fa-arrows-alt-v"></i> miles
+        {{place.distanceFromPrevious}} <i class="fas fa-arrows-alt-v" style="font-size: 16px;"></i> miles
       </div>
     {{/if}}
 
     <div class="card" id="{{_id}}">
       <span class="cardtitle noselect" style="background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/500x200/?{{place.name}}');">{{place.name}}
-            <i class="fas fa-info-circle show-place" data-showid="{{place._id}}" style="cursor: pointer; float: right;"></i>
     </span>
       <div class="cardinterior">
         <br />  <br />  <br />
@@ -21,6 +20,8 @@
         {{/if}}
           {{place.country}}
       </h4>
+      <i class="fas fa-info-circle show-place" data-showid="{{place._id}}" style="cursor: pointer; float: right; margin: 15px;"></i>
+
 
 </div>
 </div>

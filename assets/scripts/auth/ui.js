@@ -104,6 +104,8 @@ const onSignOutSuccess = function () {
   $('#interested').html('')
   $('#going').html('')
   $('#place-details').html('')
+  $('#pac-input').val('')
+
 
 }
 
