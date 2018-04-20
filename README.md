@@ -7,8 +7,11 @@ Go There aims to give you the tools you need to get to all the places you want t
 
 ## Links
 Deployed site: (https://anna0312.github.io/capstone/)
+
 Deployed back end: (https://boiling-coast-87751.herokuapp.com/)
+
 Front end repo: (https://github.com/anna0312/capstone)
+
 Back end repo: (https://github.com/anna0312/capstone-api)
 
 
