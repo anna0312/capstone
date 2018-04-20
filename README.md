@@ -1,9 +1,9 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
-
 # Go There
 
-Go There is a site that helps you plan a trip around the world. There are many travel sites out there, but what makes
-this one different is that it enables you to plan multi-leg journies and gives you the data to decide what order to go where.
+Go There was inspired by my passion for travel and my plan to take a year of and travel the circumference of the world with my partner in crime. There are many travel sites out there, but I didn't find one that enabled you to plan a multi-legged journed and access the data to make decisions about where to go, when to go there, and what order to go there in.
+
+Go There aims to give you the tools you need to get to all the places you want to go. Now all you have to do is... go there.
+
 
 ## Links
 Deployed site: (https://anna0312.github.io/capstone/)
