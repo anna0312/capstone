@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Go There</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default transparent navbar-fixed-top">
+    <div class="container fixed-nav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">Go There</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><button class="btn btn-nav pad-5 sign-up" id="signUp" type="submit">Sign Up</button></li>
+          <li><button class="btn btn-nav pad-5 sign-in" id="signIn" type="submit">Sign In</button></li>
+        <li><button class="btn btn-nav pad-5 sign-out" id="get-places" type="submit">My Places</button></li>
+          <li><button class="btn btn-nav pad-5 sign-out" id="get-gmap" type="submit">Map</button></li>
+
+
+          <li class="dropdown">
+              <button class="btn btn-nav pad-5 sign-out dropdown-toggle" data-toggle="dropdown" href="#">
+                My Account <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="btn btn-nav pad-5 change-password" id="changePassword" type="submit">Change password</button></a>
+                <li><a class="btn btn-nav pad-5 sign-out" id="signOut" type="submit">Sign Out</button></a>
+              </ul>
+            </li>
+
+
+
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <ul class="cb-slideshow">
+    <li>
+      <span>Image 01</span>
+      <div>
+        <!-- <h3>Where do you ...</h3> -->
+      </div>
+    </li>
+    <li><span>Image 02</span>
+      <div>
+        <!-- <h3> ... want to go?</h3> -->
+      </div>
+    </li>
+    <li>
+      <span>Image 03</span>
+        <div>
+          <!-- <h3>Lets go there next.</h3> -->
+      </div>
+    </li>
+    <li>
+      <span>Image 04</span>
+        <div>
+          <!-- <h3>Lets go there next.</h3> -->
+      </div>
+    </li>
+    <li>
+      <span>Image 05</span>
+        <div>
+          <!-- <h3>Lets go there next.</h3> -->
+      </div>
+    </li>
+    <li>
+      <span>Image 06</span>
+        <div>
+          <!-- <h3>Lets go there next.</h3> -->
+      </div>
+    </li>
+  </ul>
+
+  <div class="visible-loggedin">
+    <!-- begin google map stuff -->
+    <div id="gmap">
+      <div class="pre-map-divider">
+          Pick a place and go there. And then pick another one and go there too.
+      </div>
+
+      <div class="pac-card" id="pac-card">
+        <div>
+          <div id="title">
+            Where have you always wanted to go?
+          </div>
+          <div id="type-selector" class="pac-controls">
+            <input type="radio" name="type" id="changetype-all" checked="checked">
+            <label for="changetype-all">All</label>
+
+            <input type="radio" name="type" id="changetype-establishment">
+            <label for="changetype-establishment">Establishments</label>
+
+            <input type="radio" name="type" id="changetype-address">
+            <label for="changetype-address">Addresses</label>
+
+            <input type="radio" name="type" id="changetype-geocode">
+            <label for="changetype-geocode">Geocodes</label>
+          </div>
+          <div id="strict-bounds-selector" class="pac-controls">
+            <input type="checkbox" id="use-strict-bounds" value="">
+            <label for="use-strict-bounds">Strict Bounds</label>
+          </div>
+        </div>
+        <div id="pac-container">
+          <input id="pac-input" type="text" placeholder="Enter a location">
+        </div>
+      </div>
+      <div id="map"></div>
+      <div id="infowindow-content">
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name" class="title"></span><br>
+        <span id="place-address"></span>
+      </div>
+
+
+    </div>
+
+<a name="places"></a>
+    <div id="kaban">
+      <div id="scroller">
+        <div id="boards">
+
+          <div class="board" id="board1">
+            <header>Might go there </header>
+            <div class="cards" id="interested">
+            </div>
+          </div>
+
+          <div class="board" id="board2">
+            <header>Definitely going there!</header>
+            <div class="cards" id="going">
+            </div>
+          </div>
+
+          <div class="board" id="board3">
+            <header>Details</header>
+            <div class="cards" id="place-details">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- end google maps stuff -->
+  </div>
+  <!-- THE FOLLOWING CONTAINS ALL THE MODALS -->
+
+
+  <!-- MODAL: SIGN UP -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeSignUpModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form class="form-horizontal" id="signUpForm">
+            <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" id="signUpEmail" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" id="signUpPassword" placeholder="Password">
+            </div>
+            <div class="form-group">
+
+                <input type="password" name="credentials[password_confirmation]" class="form-control" id="signUpPasswordConf" placeholder="Password">
+            </div>
+                <button type="submit" class="btn btn-default">Sign up</button>
+              </form>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- MODAL: SIGN IN -->
+
+
+
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeSignInModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form id="signInForm">
+            <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" id="signInEmail" placeholder="Email">
+
+            </div>
+            <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" id="signInPassword" placeholder="Password">
+            </div>
+
+                <button type="submit" class="btn btn-default">Sign In</button>
+
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- MODAL: CHANGE PASSWORD -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="closeChangePassword" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Modal form -->
+          <form class="form-horizontal" id="changePasswordForm">
+            <div class="form-group">
+                <input type="password" name="passwords[old]" class="form-control" id="changePasswordOld" placeholder="old password">
+              </div>
+              <div class="form-group">
+                <input type="password" name="passwords[new]" class="form-control" id="changePasswordNew" placeholder="new password">
+              </div>
+                <button type="submit" class="change-pwd btn btn-default">Change Password</button>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
